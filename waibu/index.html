@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/index_style.css"/>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<script type="text/javascript" src="js/jquery.js"></script>
+	</head>
+	<body>
+		<!--头部导航-->
+		<div class="head clearfix">
+			<div class="logo">
+				<img src="images/4外部数据管理系统数据地图1_03.png"/>
+				<p>外部数据管理平台</p>
+			</div>
+			<ul class="clearfix">
+				<li class="cur"><a href="#">数据地图</a><i></i></li>
+				<li><a href="#">用量统计</a><i></i></li>
+				<li><a href="#">系统管理</a><i></i></li>
+			</ul>
+			<div class="people">
+				<img src="images/images/人员_06.png"/>
+				<span>陈铮</span>
+			</div>
+		</div>
+		<!--内容-->
+		<div class="content clearfix">
+			<!--左边-->
+			<div class="content-left">
+				<ul class="a" data-show= "0">
+					<a href="javascript:;">大智慧财富</a>
+					<li>
+						<ul class="b" data-showa= "0">
+							<a href="javascript:;">行情数据</a>
+							<li>
+								<ul class="c" data-showb= "0">
+									<a href="javascript:;">基础行情</a>
+									<li>
+										<ul class="d" data-showc= "0">
+											<a href="javascript:;">债券行情</a>
+											<li><a href="#">大宗交易表</a></li>
+										</ul>
+										<ul class="d">
+											<a href="#">债券行情</a>
+											<li><a href="#">大宗交易表</a></li>
+											<li><a href="#">股票历史日交易</a></li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="a">
+					<a href="javascript:;">恒生聚源</a>
+					<li>
+						<ul class="b">
+							<a href="javascript:;">行情数据</a>
+						</ul>
+						<ul class="b">
+							<a href="javascript:;">行情数据</a>
+						</ul>
+					</li>
+				</ul>
+				<ul class="a">
+					<a href="#">恒生聚源</a>
+				</ul>
+			</div>
+			<!--右边-->
+			<div class="content-right">
+				<form action="get">
+					<input type="text" name="" id="" value="" placeholder="请输入要查询的关键字"/>
+					<span>查询范围</span>
+					<select name="">
+						<option value="全部">全部</option>
+					</select>
+					<input type="submit" name="" id="" value="查询" />
+				</form>
+				<div class="pic">
+					<img src="images/图层 2.png"/ width="100%">
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			//头部导航
+			$('.head ul li').click(function(){
+				$(this).addClass('cur');
+				$(this).siblings('li').removeClass('cur');
+			})
+			//内容
+			$('.a').click(function(){
+				var chu=$(this).attr('data-show')
+				if(chu==0){
+					$(this).find('.b').show();
+					$(this).attr('data-show',1)
+				}else{
+					$(this).find('.b').hide();
+					$(this).attr('data-show',0)
+				}
+			})
+			$('.b').click(function(event){
+				var chu=$(this).attr('data-showa')
+				if(chu==0){
+					$(this).find('.c').show();
+					$(this).attr('data-showa',1)
+				}else{
+					$(this).find('.c').hide();
+					$(this).attr('data-showa',0)
+				}
+				event.stopPropagation();
+			})
+			$('.c').click(function(event){
+				var chu=$(this).attr('data-showb')
+				if(chu==0){
+					$(this).find('.d').show();
+					$(this).attr('data-showb',1)
+				}else{
+					$(this).find('.d').hide();
+					$(this).attr('data-showb',0)
+				}
+				event.stopPropagation();
+			})
+			$('.d').click(function(event){
+				var chu=$(this).attr('data-showc')
+				if(chu==0){
+					$(this).find('li').show();
+					$(this).attr('data-showc',1)
+				}else{
+					$(this).find('li').hide();
+					$(this).attr('data-showc',0)
+				}
+				event.stopPropagation();
+			})
+		</script>
+	</body>
+</html>
